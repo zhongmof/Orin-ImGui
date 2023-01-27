@@ -28,7 +28,7 @@ int main(int, char**)
 {
     WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, _T("ImGui Tool"), NULL };
     ::RegisterClassEx(&wc);
-    HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("ImGui Tool"), WS_OVERLAPPEDWINDOW, 100, 100, 1, 1, NULL, NULL, wc.hInstance, NULL);
+    HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("ImGui"), WS_OVERLAPPEDWINDOW, 100, 100, 1, 1, NULL, NULL, wc.hInstance, NULL);
 
     
     if (!CreateDeviceD3D(hwnd))
@@ -110,21 +110,18 @@ int main(int, char**)
             static int Color_ = 0;
             enum Color_
             {
-                Red,
-                Green,
-                Blue,
-                Orange
+                Nonamecolor,
             };
 
             switch (Color_)
             {
-            case Color_::Red:
+            case Color_::Nonamecolor:
                 Style.ChildRounding = 8.0f;
                 Style.FrameRounding = 5.0f;
 
-                Color[ImGuiCol_Button] = ImColor(192, 51, 74, 255);
-                Color[ImGuiCol_ButtonHovered] = ImColor(212, 71, 94, 255);
-                Color[ImGuiCol_ButtonActive] = ImColor(172, 31, 54,255);
+                Color[ImGuiCol_Button] = ImColor(0, 158, 158, 255);
+                Color[ImGuiCol_ButtonHovered] = ImColor(0, 158, 158, 255);
+                Color[ImGuiCol_ButtonActive] = ImColor(0, 158, 158, 255);
 
                 Color[ImGuiCol_FrameBg] = ImColor(54, 54, 54, 150);
                 Color[ImGuiCol_FrameBgActive] = ImColor(42, 42, 42, 150);
@@ -135,75 +132,9 @@ int main(int, char**)
                 Color[ImGuiCol_SliderGrab] = ImColor(192, 51, 74, 255);
                 Color[ImGuiCol_SliderGrabActive] = ImColor(172, 31, 54, 255);
 
-                Color[ImGuiCol_Header] = ImColor(192, 51, 74, 255);
-                Color[ImGuiCol_HeaderHovered] = ImColor(212, 71, 94, 255);
-                Color[ImGuiCol_HeaderActive] = ImColor(172, 31, 54, 255);
-                break;
-            case Color_::Green:
-                Style.ChildRounding = 8.0f;
-                Style.FrameRounding = 5.0f;
-
-                Color[ImGuiCol_Button] = ImColor(10, 105, 56, 255);
-                Color[ImGuiCol_ButtonHovered] = ImColor(30, 125, 76, 255);
-                Color[ImGuiCol_ButtonActive] = ImColor(0, 95, 46, 255);
-
-                Color[ImGuiCol_FrameBg] = ImColor(54, 54, 54, 150);
-                Color[ImGuiCol_FrameBgActive] = ImColor(42, 42, 42, 150);
-                Color[ImGuiCol_FrameBgHovered] = ImColor(100, 100, 100, 150);
-
-                Color[ImGuiCol_CheckMark] = ImColor(10, 105, 56, 255);
-
-                Color[ImGuiCol_SliderGrab] = ImColor(10, 105, 56, 255);
-                Color[ImGuiCol_SliderGrabActive] = ImColor(0, 95, 46, 255);
-
-                Color[ImGuiCol_Header] = ImColor(10, 105, 56, 255);
-                Color[ImGuiCol_HeaderHovered] = ImColor(30, 125, 76, 255);
-                Color[ImGuiCol_HeaderActive] = ImColor(0, 95, 46, 255);
-                
-                break;
-            case Color_::Blue:
-                Style.ChildRounding = 8.0f;
-                Style.FrameRounding = 5.0f;
-
-                Color[ImGuiCol_Button] = ImColor(51, 120, 255, 255);
-                Color[ImGuiCol_ButtonHovered] = ImColor(71, 140, 255, 255);
-                Color[ImGuiCol_ButtonActive] = ImColor(31, 100, 225, 255);
-
-                Color[ImGuiCol_FrameBg] = ImColor(54, 54, 54, 150);
-                Color[ImGuiCol_FrameBgActive] = ImColor(42, 42, 42, 150);
-                Color[ImGuiCol_FrameBgHovered] = ImColor(100, 100, 100, 150);
-
-                Color[ImGuiCol_CheckMark] = ImColor(51, 120, 255, 255);
-
-                Color[ImGuiCol_SliderGrab] = ImColor(51, 120, 255, 255);
-                Color[ImGuiCol_SliderGrabActive] = ImColor(31, 100, 225, 255);
-
-                Color[ImGuiCol_Header] = ImColor(51, 120, 255, 255);
-                Color[ImGuiCol_HeaderHovered] = ImColor(71, 140, 255, 255);
-                Color[ImGuiCol_HeaderActive] = ImColor(31, 100, 225, 255);
-
-                break;
-            case Color_::Orange://233,87,33
-                Style.ChildRounding = 8.0f;
-                Style.FrameRounding = 5.0f;
-
-                Color[ImGuiCol_Button] = ImColor(233, 87, 33, 255);
-                Color[ImGuiCol_ButtonHovered] = ImColor(253, 107, 53, 255);
-                Color[ImGuiCol_ButtonActive] = ImColor(213, 67, 13, 255);
-
-                Color[ImGuiCol_FrameBg] = ImColor(54, 54, 54, 150);
-                Color[ImGuiCol_FrameBgActive] = ImColor(42, 42, 42, 150);
-                Color[ImGuiCol_FrameBgHovered] = ImColor(100, 100, 100, 150);
-
-                Color[ImGuiCol_CheckMark] = ImColor(233, 87, 33, 255);
-
-                Color[ImGuiCol_SliderGrab] = ImColor(233, 87, 33, 255);
-                Color[ImGuiCol_SliderGrabActive] = ImColor(213, 67, 13, 255);
-
-                Color[ImGuiCol_Header] = ImColor(233, 87, 33, 255);
-                Color[ImGuiCol_HeaderHovered] = ImColor(253, 107, 53, 255);
-                Color[ImGuiCol_HeaderActive] = ImColor(213, 67, 13, 255);
-
+                Color[ImGuiCol_Header] = ImColor(0, 158, 158, 255);
+                Color[ImGuiCol_HeaderHovered] = ImColor(0, 158, 158, 255);
+                Color[ImGuiCol_HeaderActive] = ImColor(0, 158, 158, 255);
                 break;
             }
 
@@ -215,20 +146,20 @@ int main(int, char**)
             }
 
 
-            ImGui::Begin(u8"ImGui Tool", NULL, ImGuiWindowFlags_NoSavedSettings);//开始绘制窗口
+            ImGui::Begin(u8"ImGui", NULL, ImGuiWindowFlags_NoSavedSettings);//开始绘制窗口
 
 
             {
-                ImGui::GetWindowDrawList()->AddLine({ ImGui::GetWindowPos().x + 545.0f,ImGui::GetWindowPos().y + 10.0f }, { ImGui::GetWindowPos().x + 545.0f,ImGui::GetWindowPos().y + 390.0f }, ImColor(100, 100, 100, 255));
+                ImGui::GetWindowDrawList()->AddLine({ ImGui::GetWindowPos().x + 545.0f,ImGui::GetWindowPos().y + 28.0f }, { ImGui::GetWindowPos().x + 545.0f,ImGui::GetWindowPos().y + 390.0f }, ImColor(37, 37, 43, 255));
 
-                ImGui::SetCursorPos({ 550.0f,20.0f });
+                ImGui::SetCursorPos({ 550.0f,33.0f });
                 ImGui::PushFont(Font_Big);
                 ImGui::TextColored(Color[ImGuiCol_Button], u8" \u9B08 ImGui");
                 ImGui::PopFont();
 
 
 
-                ImGui::SetCursorPos({ 550.0f,65.0f });
+                ImGui::SetCursorPos({ 550.0f,78.0f });
 
                 ImGui::PushStyleColor(ImGuiCol_Button, Tab == Tab::Panel ? Color[ImGuiCol_Button] : ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
                 if (ImGui::Button(u8"Panel", { 110.0f,45.0f }))
@@ -238,7 +169,7 @@ int main(int, char**)
                 ImGui::PopStyleColor();
 
                 ImGui::PushStyleColor(ImGuiCol_Button, Tab == Tab::Button ? Color[ImGuiCol_Button] : ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
-                ImGui::SetCursorPos({ 550.0f,118.0f });
+                ImGui::SetCursorPos({ 550.0f,131.0f });
                 if (ImGui::Button(u8"Button", { 110.0f,45.0f }))
                 {
                     Tab = Tab::Button;
@@ -246,7 +177,7 @@ int main(int, char**)
                 ImGui::PopStyleColor();
 
                 ImGui::PushStyleColor(ImGuiCol_Button, Tab == Tab::Input ? Color[ImGuiCol_Button] : ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
-                ImGui::SetCursorPos({ 550.0f,171.0f });
+                ImGui::SetCursorPos({ 550.0f,184.0f });
                 if (ImGui::Button(u8"Input", { 110.0f,45.0f }))
                 {
                     Tab = Tab::Input;
@@ -254,19 +185,12 @@ int main(int, char**)
                 ImGui::PopStyleColor();
 
                 ImGui::PushStyleColor(ImGuiCol_Button, Tab == Tab::CheckBox ? Color[ImGuiCol_Button] : ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
-                ImGui::SetCursorPos({ 550.0f,224.0f });
+                ImGui::SetCursorPos({ 550.0f,237.0f });
                 if (ImGui::Button(u8"CheckBox", { 110.0f,45.0f }))
                 {
                     Tab = Tab::CheckBox;
                 }
                 ImGui::PopStyleColor();
-
-                ImGui::SetCursorPos({ 575.0f,300.0f });
-                ImGui::Text(u8"主题颜色");
-                ImGui::SameLine();
-                ImGui::SetCursorPos({ 575.0f,328.0f });
-                ImGui::SetNextItemWidth(80.0f);
-                ImGui::Combo(u8" ", &Color_, u8"红色\0绿色\0蓝色\0橙色");
 
             }
 
