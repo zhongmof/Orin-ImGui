@@ -216,7 +216,6 @@ int main(int, char**)
 
 
             ImGui::Begin(u8"ImGui Tool", NULL, ImGuiWindowFlags_NoSavedSettings);//开始绘制窗口
-            ImGui::SetWindowSize({ 700.0f,400.0f });//设置窗口大小
 
 
             {
