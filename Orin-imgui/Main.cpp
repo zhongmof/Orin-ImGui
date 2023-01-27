@@ -215,7 +215,7 @@ int main(int, char**)
             }
 
 
-            ImGui::Begin(u8"ImGui Tool", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings);//开始绘制窗口
+            ImGui::Begin(u8"ImGui Tool", NULL);//开始绘制窗口
             ImGui::SetWindowSize({ 700.0f,400.0f });//设置窗口大小
 
 
@@ -224,7 +224,7 @@ int main(int, char**)
 
                 ImGui::SetCursorPos({ 550.0f,20.0f });
                 ImGui::PushFont(Font_Big);
-                ImGui::TextColored(Color[ImGuiCol_Button], u8"\u9B08 ImGui");
+                ImGui::TextColored(Color[ImGuiCol_Button], u8" \u9B08 ImGui");
                 ImGui::PopFont();
 
 
